@@ -10,6 +10,7 @@ pipeline {
         }
         stage("Execute script"){
             steps{
+                sh 'Hello from GitHub'
                 sh 'chmod u+x execute.sh'
                 sh './execute.sh'
             }
