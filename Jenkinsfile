@@ -10,12 +10,12 @@ pipeline {
         }
         stage("Build"){
             steps{
-                sh 'mvn package'
+                sh '/opt/homebrew/bin/mvn package'
             }
         }
         stage("Test"){
             steps{
-                sh 'mvn verify'
+                sh '/opt/homebrew/bin/mvn verify'
             }
         }
         stage("Store Artifactory"){
