@@ -8,11 +8,19 @@ pipeline {
                 sh 'ls -l'
             }
         }
-        stage("Execute script"){
+        stage("Build"){
             steps{
-                sh 'echo Hello from GitHub'
-                sh 'chmod u+x execute.sh'
-                sh './execute.sh'
+                sh 'maven package'
+            }
+        }
+        stage("Test"){
+            steps{
+                sh 'mvn verify'
+            }
+        }
+        stage("Store Artifactory"){
+            steps{
+                sh 'ls -l target/'
             }
         }
     }
